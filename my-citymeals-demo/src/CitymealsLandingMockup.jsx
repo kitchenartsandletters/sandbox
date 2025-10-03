@@ -298,13 +298,19 @@ export default function CitymealsLandingMockup() {
       {/* Sticky mobile bar */}
       <div className="sticky-mobile-bar">
         <div className="container">
-          <div>
-            <button onClick={() => setSelectedSet("petite")} className={`btn btn-secondary${selectedSet === "petite" ? " btn-selected" : ""}`}>Petite Tasting</button>
-            <button onClick={() => setSelectedSet("grand")} className={`btn btn-secondary${selectedSet === "grand" ? " btn-selected" : ""}`}>Grand Tasting</button>
+          <div className="sticky-bar-controls">
+            <div className="set-buttons">
+              <button onClick={() => setSelectedSet("petite")} className={`btn btn-secondary${selectedSet === "petite" ? " btn-selected" : ""}`}>Petite Tasting</button>
+              <button onClick={() => setSelectedSet("grand")} className={`btn btn-secondary${selectedSet === "grand" ? " btn-selected" : ""}`}>Grand Tasting</button>
+            </div>
+            <div className="cart-button">
+              <button onClick={() => handleAddToCart(selectedSet)} className="btn btn-primary">Add to Cart</button>
+            </div>
           </div>
-          <div>
-            <button onClick={() => handleAddToCart(selectedSet)} className="btn btn-primary">Add to Cart</button>
-            <p><span>{donationBySet[selectedSet]}</span></p>
+          <div className="sticky-donation-row">
+            <div className="donation-message">
+              <p><span>{donationBySet[selectedSet]}</span></p>
+            </div>
           </div>
         </div>
       </div>
