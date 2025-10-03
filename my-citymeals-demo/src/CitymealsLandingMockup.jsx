@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 
 export default function CitymealsLandingMockup() {
-  const [openFaq, setOpenFaq] = useState(null);
   const [selectedSet, setSelectedSet] = useState("petite");
   const donationBySet = { petite: "$25 from your purchase supports Citymeals", grand: "$50 from your purchase supports Citymeals" };
 
@@ -10,19 +9,19 @@ export default function CitymealsLandingMockup() {
       petite: [
         {
           title: "What’s Good",
-          subtitle: "Peter Hoffman",
+          subtitle: "by Peter Hoffman",
           blurb:
             "Ingredient-driven stories and recipes from a pioneering NYC chef; a love letter to markets and seasons.",
         },
         {
           title: "Cooking with Dad, the Chef",
-          subtitle: "Verveine Oringer & Ken Oringer",
+          subtitle: "by Verveine Oringer & Ken Oringer",
           blurb:
             "A playful, heartfelt father–daughter collaboration that celebrates curiosity and the joy of cooking together.",
         },
         {
           title: "Preserving Wild Foods",
-          subtitle: "Matthew Weingarten & Raquel Pelzel",
+          subtitle: "by Matthew Weingarten & Raquel Pelzel",
           blurb:
             "Foraging-rooted techniques and pantry craft—pickling, fermenting, and preserving with purpose.",
         },
@@ -30,31 +29,31 @@ export default function CitymealsLandingMockup() {
       grand: [
         {
           title: "What’s Good",
-          subtitle: "Peter Hoffman",
+          subtitle: "by Peter Hoffman",
           blurb:
             "Ingredient-driven stories and recipes from a pioneering NYC chef; a love letter to markets and seasons.",
         },
         {
           title: "Cooking with Dad, the Chef",
-          subtitle: "Verveine Oringer & Ken Oringer",
+          subtitle: "by Verveine Oringer & Ken Oringer",
           blurb:
             "A playful, heartfelt father–daughter collaboration that celebrates curiosity and the joy of cooking together.",
         },
         {
           title: "Preserving Wild Foods",
-          subtitle: "Matthew Weingarten & Raquel Pelzel",
+          subtitle: "by Matthew Weingarten & Raquel Pelzel",
           blurb:
             "Foraging-rooted techniques and pantry craft—pickling, fermenting, and preserving with purpose.",
         },
         {
           title: "Relae: A Book of Ideas",
-          subtitle: "Christian Puglisi",
+          subtitle: "by Christian Puglisi",
           blurb:
             "Idea essays and process windows from the acclaimed Copenhagen restaurant; creativity in service of flavor.",
         },
         {
           title: "Cooking by Hand",
-          subtitle: "Paul Bertolli",
+          subtitle: "by Paul Bertolli",
           blurb:
             "A chef's evolution through craft—charcuterie, pasta, and the philosophy of cooking well.",
         },
@@ -84,54 +83,29 @@ export default function CitymealsLandingMockup() {
       <header>
         <div className="container">
           <div>
-            <div>KAL</div>
             <div />
-            <img src="https://placehold.co/120x36?text=Citymeals" alt="Citymeals on Wheels" />
-          </div>
-          <nav>
-            <a href="#sets">Sets</a>
-            <a href="#books">Books</a>
-            <a href="#faq">FAQ</a>
-          </nav>
-          <div>
-            <button className="btn btn-secondary">Learn More</button>
-            <a href="#select" className="btn btn-primary">Choose Your Set</a>
           </div>
         </div>
       </header>
 
       {/* Hero */}
       <section>
-        <div className="hero-content container">
+        <div className="hero-banner container">
           <div>
-            <p>
-              Limited-time • Supports Citymeals on Wheels
-            </p>
-            <h1>
-              Treat Yourself or a Loved One to Chef Marc Forgione’s “Culinary Storytelling”  Book Collection, Exclusively Selected for Citymeals on Wheels
-            </h1>
-            <p>
-              A limited-time offering of handpicked books from a celebrated New York City chef—supporting
-              meal deliveries and companionship for homebound elderly New Yorkers.
-            </p>
-            <div>
-              <a href="#select" className="btn btn-primary">Choose Your Set</a>
-              <a href="#about" className="btn btn-secondary">About the Collaboration</a>
-            </div>
-          </div>
-          <div className="hero-banner card">
-            <div className="placeholder">Hero Banner Placeholder</div>
+            <picture>
+              <source srcSet="/heroBanner-mobile.png" media="(max-width: 767px)" />
+              <source srcSet="/heroBanner-desktop.png" media="(min-width: 768px)" />
+              <img src="/heroBanner-desktop.png" alt="Hero Banner" />
+            </picture>
           </div>
         </div>
       </section>
 
       {/* About */}
-      <div>
-        <h2>A Chef's Library with a Purpose</h2>
-      </div>
       <section id="about">
-        <div className="container variant-grid">
-          <div>
+        <div className="container about-grid">
+          <div className="about-copy">
+            <h2>A Chef's Library with a Purpose</h2>
             <p>
               In partnership with Citymeals on Wheels, acclaimed chef Marc Forgione (chef-owner of Restaurant Marc Forgione,
               Peasant, and others, and a Food Network Iron Chef) has selected a set of chef- and restaurant-focused books and
@@ -146,9 +120,21 @@ export default function CitymealsLandingMockup() {
               books personally selected by one of New York’s most respected chefs—while making a real difference in the lives of others.
             </p>
           </div>
-          <div className="about-headshot">
+          <div className="about-headshot full-bleed">
             <img src="/forgioneHeadshot.jpg" alt="Chef Marc Forgione" />
           </div>
+        </div>
+      </section>
+
+            {/* Books teaser grid with tooltips */}
+      <section id="books">
+        <div className="container section-header">
+          <h2>Marc’s Culinary Storytelling Collection</h2>
+          <p><strong>“I love hearing about people’s journeys through food,” says Marc Forgione.</strong></p>
+          <p>
+            That sentiment flows through his book selection. From Peter Hoffman’s ingredient-inspired reminiscences to Paul Bertolli’s culinary evolution to the daughter-father dynamic shared by Verveine Origner and Ken Oringer to the “idea essays” of Christian Puglisi to Matthew Weingarten and Raquel Pelzel’s paean to foraging and the ancient craft of preserving … all of Forgione’s selections will be as at home in an armchair as they are in the kitchen. 
+          </p>
+          <p><strong>“These aren’t just cookbooks,” says Marc. “They’re storybooks as well.”</strong></p>
         </div>
       </section>
 
@@ -163,22 +149,38 @@ export default function CitymealsLandingMockup() {
             <header>
               <div>
                 <h3>Petite Tasting Set</h3>
-                <p>3 chef-selected books • Ships in standard packaging</p>
+                <p>3 chef-selected books</p>
               </div>
               <div>
-                <div>$94.95</div>
-                <div>$25 supports Citymeals</div>
+                <h4>$94.95</h4>
               </div>
             </header>
-            <ul>
-              <li>What’s Good — Peter Hoffman</li>
-              <li>Cooking with Dad, the Chef — Verveine Oringer & Ken Oringer</li>
-              <li>Preserving Wild Foods — Matthew Weingarten & Raquel Pelzel</li>
+            <div className="book-grid three-books">
+              {booksBySet.petite.map((b, idx) => (
+                <div key={idx} className="card">
+                  {b.title === "What’s Good" ? (
+                    <img src="/whatsGood.jpg" alt={b.title} />
+                  ) : b.title === "Cooking with Dad, the Chef" ? (
+                    <img src="/CookingWithMyDad.jpeg" alt={b.title} />
+                  ) : b.title === "Preserving Wild Foods" ? (
+                    <img src="/preservingWildFoods.webp" alt={b.title} />
+                  ) : (
+                    <div className="placeholder">Cover Placeholder</div>
+                  )}
+                  <div>
+                    <h4 className="book-title">{b.title}</h4>
+                    <div>{b.subtitle}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <ul className="variant-card-list">
+              <li>Signed letter from Marc Forgione, sharing why he chose these titles</li>
+              <li>Access to an exclusive online book discussion, moderated by Andrew Friedman, author, host/producer of the Andrew Talks to Chefs podcast, veteran cookbook collaborator, and Citymeals board member </li>
+              <li>$25 from your purchase supports Citymeals</li>
+              <li>Ships in standard packaging</li>
             </ul>
-            <ul>
-              <li>Signed letter from Marc Forgione</li>
-              <li>Access to an exclusive online book discussion (moderated by Andrew Friedman)</li>
-            </ul>
+            <div className="foot-message">Ideal for cookbook lovers, passionate home cooks, and anyone who believes in the power of good food to connect and nourish.</div>
             <div>
               <button onClick={() => setSelectedSet("petite")} className="btn btn-primary">See Details</button>
               <a href="#pdp" className="btn btn-secondary">Buy Petite</a>
@@ -190,25 +192,40 @@ export default function CitymealsLandingMockup() {
             <header>
               <div>
                 <h3>Grand Tasting Set</h3>
-                <p>5 chef-selected books • Gift-quality packaging</p>
+                <p>5 chef-selected books</p>
               </div>
               <div>
-                <div>$209.95</div>
-                <div>$50 supports Citymeals</div>
+                <h4>$209.95</h4>
+              </div>
+              <div className="book-grid two-books">
+                <div className="card">
+                  <img src="/relaeCover.jpg" alt="Relae: A Book of Ideas" />
+                  <div>
+                    <h4 className="book-title">Relae: A Book of Ideas</h4>
+                    <div>by Christian Puglisi</div>
+                  </div>
+                </div>
+                <div className="card">
+                  <img src="/cookingByHand.jpg" alt="Cooking by Hand" />
+                  <div>
+                    <h4 className="book-title">Cooking by Hand</h4>
+                    <div>by Paul Bertolli</div>
+                  </div>
+                </div>
               </div>
             </header>
-            <ul>
-              <li>All Petite titles plus:</li>
-              <li>Relae: A Book of Ideas — Christian Puglisi</li>
-              <li>Cooking by Hand — Paul Bertolli</li>
-            </ul>
-            <ul>
+            <ul className="variant-card-list">
+              <li>5 chef-selected book: the three books included in the Petite Tasting set as well as:
+                  <li>Relae: A Book of Ideas by Christian Puglisi</li>
+                  <li>Cooking by Hand by Paul Bertolli</li>
+                  </li>
               <li>Signed letter from Marc Forgione</li>
               <li>Access to the online book discussion</li>
               <li>Citymeals-branded tote bag</li>
               <li>Gift-quality packaging</li>
+              <li>$50 from your purchase supports Citymeals</li>
             </ul>
-            <p>Grand Tasting orders ship mid–late October pending special gift-box completion.</p>
+            <div className="foot-message">An exceptional gift—generous in its contents, presentation, and impact.</div>
             <div>
               <button onClick={() => setSelectedSet("grand")} className="btn btn-primary">See Details</button>
               <a href="#pdp" className="btn btn-secondary">Buy Grand</a>
@@ -217,101 +234,19 @@ export default function CitymealsLandingMockup() {
         </div>
       </section>
 
-      {/* Books teaser grid with tooltips */}
-      <section id="books">
-        <div className="container section-header">
-          <h2>Marc’s Culinary Storytelling Collection</h2>
-          <p>“These aren’t just cookbooks—they’re storybooks as well.” — Marc Forgione</p>
-        </div>
-        <div className="container">
-          <p>
-            “I love hearing about people’s journeys through food,” says Marc Forgione. The selections below blend narrative and technique;
-            each title is as at home in an armchair as it is in the kitchen.
-          </p>
-          <div className="book-grid">
-            {(selectedSet === "petite" ? booksBySet.petite : booksBySet.grand).map((b, idx) => (
-              <div key={idx} className="card">
-                <div className="placeholder">Cover Placeholder</div>
-                <div>
-                  <div>{b.title}</div>
-                  <div>{b.subtitle}</div>
-                  <p>{b.blurb}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PDP-style section (inline mock) */}
-      <section id="pdp">
-        <div className="container variant-grid">
-          <div className="card">
-            <div className="placeholder">Lifestyle / Set Photography Placeholder</div>
-            <div className="book-grid">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} className="placeholder" />
-              ))}
-            </div>
-          </div>
-          <div>
-            <h2>Chef Marc Forgione — Culinary Storytelling Collection</h2>
-            <p>In partnership with Citymeals on Wheels</p>
-            <div>
-              <button
-                onClick={() => setSelectedSet("petite")}
-                className={`btn btn-secondary${selectedSet === "petite" ? " btn-selected" : ""}`}
-              >
-                Petite — $94.95
-              </button>
-              <button
-                onClick={() => setSelectedSet("grand")}
-                className={`btn btn-secondary${selectedSet === "grand" ? " btn-selected" : ""}`}
-              >
-                Grand — $209.95
-              </button>
-            </div>
-            <div>
-              <span>{donationBySet[selectedSet]}</span>
-            </div>
-            <p>Ships in early November. Grand Tasting uses a special gift box.</p>
-            <div>
-              <button className="btn btn-primary">Add {selectedSet === "petite" ? "Petite" : "Grand"} to Cart</button>
-              <button className="btn btn-secondary">Buy Now</button>
-            </div>
-            <div>
-              <h3>What’s in the {selectedSet === "petite" ? "Petite" : "Grand"} Set</h3>
-              <ul>
-                {booksBySet[selectedSet].map((b, idx) => (
-                  <li key={idx}><span>{b.title}</span> — {b.subtitle}</li>
-                ))}
-                {selectedSet === "grand" && (
-                  <>
-                    <li>Citymeals-branded tote bag</li>
-                    <li>Gift-quality packaging</li>
-                  </>
-                )}
-                <li>Signed letter from Marc Forgione</li>
-                <li>Access to an exclusive online book discussion (moderated by Andrew Friedman)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Citymeals Block */}
       <section>
         <div className="container">
-          <div className="card variant-grid">
-            <div className="placeholder"><img src="/citymealsLogo.png" alt="Citymeals on Wheels Logo" /></div>
+          <div className="card variant-grid citymeals-card">
+            <div className="citymealsLogo"><img src="/citymealsLogo.png" alt="Citymeals on Wheels Logo" /></div>
             <div>
               <h3>About Citymeals</h3>
-              <p>
+              <p className="citymeals-blurb">
                 Citymeals provides nourishing meals and vital companionship to older New Yorkers in need. Each year, they deliver more than two
                 million meals to the city’s most vulnerable residents—right to their doors. Your purchase directly supports this work.
               </p>
               <div>
-                <a href="#">Learn more →</a>
+                <a href="https://www.citymeals.org/">Learn more →</a>
               </div>
             </div>
           </div>
@@ -326,36 +261,36 @@ export default function CitymealsLandingMockup() {
         <div className="container">
           <div className="faq">
             {faqs.map((f, i) => (
-              <details key={i} open={openFaq === i} onToggle={e => setOpenFaq(e.target.open ? i : null)}>
-                <summary>
-                  {f.q}
-                  <span>{openFaq === i ? "–" : "+"}</span>
-                </summary>
+              <details key={i}>
+                <summary>{f.q}</summary>
                 <p>{f.a}</p>
               </details>
             ))}
           </div>
-          <p>Final Note: This is more than a collection of cookbooks—it’s a personal glimpse into the inspirations of a celebrated chef and an opportunity to support an organization doing vital work in NYC. Quantities are limited.</p>
+        <div className="final-note">
+          <h2>Final Note</h2>
+        </div>
+          <div className="foot-message">
+            <p>This is more than a collection of cookbooks. It’s a personal glimpse into the culinary inspirations of a celebrated chef—and an opportunity to support an organization doing vital work in New York City.</p>
+            <p>Quantities are limited. Reserve your set while they’re available.</p>
+</div>
         </div>
       </section>
 
       {/* Sticky mobile bar */}
-      <div>
+      <div className="sticky-mobile-bar">
         <div className="container">
           <div>
-            <span>Selected:</span>
             <button onClick={() => setSelectedSet("petite")} className={`btn btn-secondary${selectedSet === "petite" ? " btn-selected" : ""}`}>Petite</button>
             <button onClick={() => setSelectedSet("grand")} className={`btn btn-secondary${selectedSet === "grand" ? " btn-selected" : ""}`}>Grand</button>
+            <p><span>Selected:</span></p>
           </div>
           <div>
-            <span>{donationBySet[selectedSet]}</span>
             <a href="#pdp" className="btn btn-primary">Add to Cart</a>
+            <p><span>{donationBySet[selectedSet]}</span></p>
           </div>
         </div>
       </div>
-
-      {/* Footer gap */}
-      <div />
     </div>
   );
 }
