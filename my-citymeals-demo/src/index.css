@@ -42,14 +42,14 @@ body {
 
 @media (max-width: 767px) {
   .container {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
   }
   body {
     font-size: 1rem;
   }
   .card {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 }
 
@@ -556,14 +556,21 @@ a:focus {
 }
 
 .set-buttons {
+  width: 100%;
   display: flex;
+  margin: auto;
   gap: 0.75rem; /* space between the two secondary buttons */
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .sticky-donation-row {
   width: 100%;
   text-align: center;
+}
+
+.sticky-cart-row .cart-button button {
+  width: 100%;
 }
 
 @media (min-width: 768px) {

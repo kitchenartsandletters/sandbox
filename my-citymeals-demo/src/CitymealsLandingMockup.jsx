@@ -234,10 +234,13 @@ export default function CitymealsLandingMockup() {
               </div>
             </header>
             <ul className="variant-card-list">
-              <li>5 chef-selected book: the three books included in the Petite Tasting set as well as:
+              <li>
+                5 chef-selected books: the three books included in the Petite Tasting set as well as:
+                <ul>
                   <li>Relae: A Book of Ideas by Christian Puglisi</li>
                   <li>Cooking by Hand by Paul Bertolli</li>
-                  </li>
+                </ul>
+              </li>
               <li>Signed letter from Marc Forgione</li>
               <li>Access to the online book discussion</li>
               <li>Citymeals-branded tote bag</li>
@@ -300,9 +303,17 @@ export default function CitymealsLandingMockup() {
         <div className="container">
           <div className="sticky-bar-controls">
             <div className="set-buttons">
-              <button onClick={() => setSelectedSet("petite")} className={`btn btn-secondary${selectedSet === "petite" ? " btn-selected" : ""}`}>Petite Tasting</button>
-              <button onClick={() => setSelectedSet("grand")} className={`btn btn-secondary${selectedSet === "grand" ? " btn-selected" : ""}`}>Grand Tasting</button>
+              <button onClick={() => {
+                setSelectedSet("petite");
+                document.querySelector("#sets article:nth-child(1)")?.scrollIntoView({ behavior: "smooth" });
+              }} className={`btn btn-secondary${selectedSet === "petite" ? " btn-selected" : ""}`}>Petite Tasting</button>
+              <button onClick={() => {
+                setSelectedSet("grand");
+                document.querySelector("#sets article:nth-child(2)")?.scrollIntoView({ behavior: "smooth" });
+              }} className={`btn btn-secondary${selectedSet === "grand" ? " btn-selected" : ""}`}>Grand Tasting</button>
             </div>
+          </div>
+          <div className="sticky-cart-row">
             <div className="cart-button">
               <button onClick={() => handleAddToCart(selectedSet)} className="btn btn-primary">Add to Cart</button>
             </div>
@@ -314,6 +325,7 @@ export default function CitymealsLandingMockup() {
           </div>
         </div>
       </div>
+      
       {tooltip.visible && (
         <div
           className="book-tooltip dynamic"
