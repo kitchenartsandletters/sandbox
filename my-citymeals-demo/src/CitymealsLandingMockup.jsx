@@ -93,9 +93,9 @@ export default function CitymealsLandingMockup() {
         <div className="hero-banner container">
           <div>
             <picture>
-              <source srcSet="/heroBanner-mobile.png" media="(max-width: 767px)" />
-              <source srcSet="/heroBanner-desktop.png" media="(min-width: 768px)" />
-              <img src="/heroBanner-desktop.png" alt="Hero Banner" />
+              <source srcSet="/assets/heroBanner-mobile.png" media="(max-width: 767px)" />
+              <source srcSet="/assets/heroBanner-desktop.png" media="(min-width: 768px)" />
+              <img src="/assets/heroBanner-desktop.png" alt="Hero Banner" />
             </picture>
           </div>
         </div>
@@ -121,7 +121,7 @@ export default function CitymealsLandingMockup() {
             </p>
           </div>
           <div className="about-headshot full-bleed">
-            <img src="/forgioneHeadshot.jpg" alt="Chef Marc Forgione" />
+            <img src="/assets/forgioneHeadshot.jpg" alt="Chef Marc Forgione" />
           </div>
         </div>
       </section>
@@ -159,11 +159,11 @@ export default function CitymealsLandingMockup() {
               {booksBySet.petite.map((b, idx) => (
                 <div key={idx} className="card">
                   {b.title === "What’s Good" ? (
-                    <img src="/whatsGood.jpg" alt={b.title} />
+                    <img src="/assets/whatsGood.jpg" alt={b.title} />
                   ) : b.title === "Cooking with Dad, the Chef" ? (
-                    <img src="/CookingWithMyDad.jpeg" alt={b.title} />
+                    <img src="/assets/CookingWithMyDad.jpeg" alt={b.title} />
                   ) : b.title === "Preserving Wild Foods" ? (
-                    <img src="/preservingWildFoods.webp" alt={b.title} />
+                    <img src="/assets/preservingWildFoods.webp" alt={b.title} />
                   ) : (
                     <div className="placeholder">Cover Placeholder</div>
                   )}
@@ -199,14 +199,14 @@ export default function CitymealsLandingMockup() {
               </div>
               <div className="book-grid two-books">
                 <div className="card">
-                  <img src="/relaeCover.jpg" alt="Relae: A Book of Ideas" />
+                  <img src="/assets/relaeCover.jpg" alt="Relae: A Book of Ideas" />
                   <div>
                     <h4 className="book-title">Relae: A Book of Ideas</h4>
                     <div>by Christian Puglisi</div>
                   </div>
                 </div>
                 <div className="card">
-                  <img src="/cookingByHand.jpg" alt="Cooking by Hand" />
+                  <img src="/assets/cookingByHand.jpg" alt="Cooking by Hand" />
                   <div>
                     <h4 className="book-title">Cooking by Hand</h4>
                     <div>by Paul Bertolli</div>
@@ -238,7 +238,7 @@ export default function CitymealsLandingMockup() {
       <section>
         <div className="container">
           <div className="card variant-grid citymeals-card">
-            <div className="citymealsLogo"><img src="/citymealsLogo.png" alt="Citymeals on Wheels Logo" /></div>
+            <div className="citymealsLogo"><img src="/assets/citymealsLogo.png" alt="Citymeals on Wheels Logo" /></div>
             <div>
               <h3>About Citymeals</h3>
               <p className="citymeals-blurb">
