@@ -77,6 +77,11 @@ export default function CitymealsLandingMockup() {
     },
   ];
 
+  function handleAddToCart(set) {
+    setSelectedSet(set);
+    console.log(`Add to cart: ${set}`);
+  }
+
   return (
     <div className="container">
       {/* Header */}
@@ -182,8 +187,7 @@ export default function CitymealsLandingMockup() {
             </ul>
             <div className="foot-message">Ideal for cookbook lovers, passionate home cooks, and anyone who believes in the power of good food to connect and nourish.</div>
             <div>
-              <button onClick={() => setSelectedSet("petite")} className="btn btn-primary">See Details</button>
-              <a href="#pdp" className="btn btn-secondary">Buy Petite</a>
+              <a className="btn btn-primary" onClick={() => handleAddToCart("petite")}>Buy Petite Tasting Set</a>
             </div>
           </article>
 
@@ -227,8 +231,7 @@ export default function CitymealsLandingMockup() {
             </ul>
             <div className="foot-message">An exceptional gift—generous in its contents, presentation, and impact.</div>
             <div>
-              <button onClick={() => setSelectedSet("grand")} className="btn btn-primary">See Details</button>
-              <a href="#pdp" className="btn btn-secondary">Buy Grand</a>
+              <a className="btn btn-primary" onClick={() => handleAddToCart("grand")}>Buy Grand Tasting Set</a>
             </div>
           </article>
         </div>
@@ -281,12 +284,11 @@ export default function CitymealsLandingMockup() {
       <div className="sticky-mobile-bar">
         <div className="container">
           <div>
-            <button onClick={() => setSelectedSet("petite")} className={`btn btn-secondary${selectedSet === "petite" ? " btn-selected" : ""}`}>Petite</button>
-            <button onClick={() => setSelectedSet("grand")} className={`btn btn-secondary${selectedSet === "grand" ? " btn-selected" : ""}`}>Grand</button>
-            <p><span>Selected:</span></p>
+            <button onClick={() => setSelectedSet("petite")} className={`btn btn-secondary${selectedSet === "petite" ? " btn-selected" : ""}`}>Petite Tasting</button>
+            <button onClick={() => setSelectedSet("grand")} className={`btn btn-secondary${selectedSet === "grand" ? " btn-selected" : ""}`}>Grand Tasting</button>
           </div>
           <div>
-            <a href="#pdp" className="btn btn-primary">Add to Cart</a>
+            <button onClick={() => handleAddToCart(selectedSet)} className="btn btn-primary">Add to Cart</button>
             <p><span>{donationBySet[selectedSet]}</span></p>
           </div>
         </div>
