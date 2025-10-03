@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 
 export default function CitymealsLandingMockup() {
   const [selectedSet, setSelectedSet] = useState("petite");
+  const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0, text: "" });
   const donationBySet = { petite: "$25 from your purchase supports Citymeals", grand: "$50 from your purchase supports Citymeals" };
 
   const booksBySet = useMemo(
@@ -80,6 +81,14 @@ export default function CitymealsLandingMockup() {
   function handleAddToCart(set) {
     setSelectedSet(set);
     console.log(`Add to cart: ${set}`);
+  }
+
+  function handleMouseMove(e, text) {
+    setTooltip({ visible: true, x: e.clientX, y: e.clientY, text });
+  }
+
+  function handleMouseLeave() {
+    setTooltip({ ...tooltip, visible: false });
   }
 
   return (
@@ -162,7 +171,7 @@ export default function CitymealsLandingMockup() {
             </header>
             <div className="book-grid three-books">
               {booksBySet.petite.map((b, idx) => (
-                <div key={idx} className="card">
+                <div key={idx} className="card book-card" onMouseMove={(e) => handleMouseMove(e, b.blurb)} onMouseLeave={handleMouseLeave}>
                   {b.title === "What’s Good" ? (
                     <img src="/assets/whatsGood.jpg" alt={b.title} />
                   ) : b.title === "Cooking with Dad, the Chef" ? (
@@ -173,7 +182,9 @@ export default function CitymealsLandingMockup() {
                     <div className="placeholder">Cover Placeholder</div>
                   )}
                   <div>
-                    <h4 className="book-title">{b.title}</h4>
+                    <h4 className="book-title">
+                      {b.title}
+                    </h4>
                     <div>{b.subtitle}</div>
                   </div>
                 </div>
@@ -202,17 +213,21 @@ export default function CitymealsLandingMockup() {
                 <h4>$209.95</h4>
               </div>
               <div className="book-grid two-books">
-                <div className="card">
+                <div className="card book-card" onMouseMove={(e) => handleMouseMove(e, booksBySet.grand[3].blurb)} onMouseLeave={handleMouseLeave}>
                   <img src="/assets/relaeCover.jpg" alt="Relae: A Book of Ideas" />
                   <div>
-                    <h4 className="book-title">Relae: A Book of Ideas</h4>
+                    <h4 className="book-title">
+                      Relae: A Book of Ideas
+                    </h4>
                     <div>by Christian Puglisi</div>
                   </div>
                 </div>
-                <div className="card">
+                <div className="card book-card" onMouseMove={(e) => handleMouseMove(e, booksBySet.grand[4].blurb)} onMouseLeave={handleMouseLeave}>
                   <img src="/assets/cookingByHand.jpg" alt="Cooking by Hand" />
                   <div>
-                    <h4 className="book-title">Cooking by Hand</h4>
+                    <h4 className="book-title">
+                      Cooking by Hand
+                    </h4>
                     <div>by Paul Bertolli</div>
                   </div>
                 </div>
@@ -293,6 +308,14 @@ export default function CitymealsLandingMockup() {
           </div>
         </div>
       </div>
+      {tooltip.visible && (
+        <div
+          className="book-tooltip dynamic"
+          style={{ top: tooltip.y + 15, left: tooltip.x + 15 }}
+        >
+          {tooltip.text}
+        </div>
+      )}
     </div>
   );
 }
