@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
   font-weight: 700;
   color: var(--color-text);
-  margin-top: 0;
+  margin-top: 1em;
   margin-bottom: 0.5em;
   line-height: 1.2;
   transition: color var(--transition-speed) ease;
@@ -333,98 +333,62 @@ a:focus {
   }
 }
 
-@media (min-width: 1024px) {
-  .dashboard-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
+/* --- Force proper visibility for book-grid vs. book-carousel --- */
 
-/* ---- Book grid styles ---- */
+/* Default state: show grid on desktop, hide carousel */
 .book-grid {
-  display: grid;
+  display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
+  gap: 1.25rem;
+  justify-items: center;
+  align-items: stretch;
   margin: 2rem auto;
   max-width: 1200px;
-  justify-content: center;
-  align-items: stretch;
-  justify-items: center;
 }
 
-.book-grid.two-books {
-  grid-template-columns: 1fr 1fr;
-  gap: 0rem;
-  justify-content: space-between;
-}
-
-@media (max-width: 767px) {
-  .book-grid.two-books {
-    grid-template-columns: 1fr;
-    justify-items: center;
-  }
-}
-
-.book-grid.three-books {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  justify-items: center;
-}
-
-/* At tablet size: wrap into 2 + 1 */
-@media (max-width: 1023px) {
-  .book-grid.three-books {
-    grid-template-columns: repeat(2, 1fr);
-  }
-    /* Center the odd last child (third book) when it wraps */
-  .book-grid.three-books > :last-child:nth-child(3) {
-    grid-column: 1 / -1;
-    justify-self: center;
-  }
-}
-
-/* At mobile size: stack full-width */
-@media (max-width: 767px) {
-  .book-grid.three-books {
-    grid-template-columns: 1fr;
-  }
-}
-
-.book-grid.three-books > *:nth-last-child(1):nth-child(odd) {
-  justify-self: center;
-}
-
-/* book-grid > *:nth-last-child(1):nth-child(odd) {
-  justify-self: center;
-} */
-
-.book-grid img {
+/* Uniform book cover image sizing for grid and carousel */
+.book-grid img,
+.book-carousel img {
   width: 100%;
-  height: 350px; /* fixed uniform height */
-  max-height: 350px;
+  height: 420px;
   object-fit: contain;
-  border-radius: var(--border-radius);
-  box-shadow: 0 4px 12px var(--shadow-light);
-  background-color: #fff;
   display: block;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 420px;
 }
 
-@media (max-width: 1023px) {
-  .book-grid img {
-    height: 300px;
-    max-height: 300px;
+.book-carousel {
+  display: none !important;
+}
+
+.book-carousel .book-card {
+  flex: 0 0 50%;
+  width: 100%;
+}
+
+
+@media (max-width: 640px) {
+  .book-carousel .book-card {
+    flex-basis: 100%;
+    width: 100%;
   }
 }
 
-.book-title {
-  font-family: var(--font-family-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-top: 0.5rem;
-  margin-bottom: 0.25rem;
-  color: var(--color-text);
-  text-align: center;
+/* On tablet and below (≤1024px): hide grid, show carousel */
+@media (max-width: 1024px) {
+  .book-grid {
+    display: none !important;
+  }
+  .book-carousel {
+    display: flex !important;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    padding-bottom: 1rem;
+  }
 }
 
 /* ---- Variant card list styles ---- */
@@ -622,4 +586,63 @@ a:focus {
 
 .btn-secondary + .btn-secondary {
   margin-left: 0.5rem;
+}
+
+/* === Shopify-style carousel scroll snapping and desktop navigation === */
+.book-carousel {
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.book-carousel .book-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  margin: 0 0.5rem;
+}
+
+.book-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+.book-carousel::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+/* Desktop-only left/right navigation arrows */
+.carousel-button {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .carousel-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+  }
+
+  .carousel-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .carousel-button.left {
+    left: -20px;
+  }
+
+  .carousel-button.right {
+    right: -20px;
+  }
 }

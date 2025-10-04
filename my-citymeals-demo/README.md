@@ -1,16 +1,105 @@
-# React + Vite
+# Citymeals Demo – Sandbox
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a sandbox implementation for the **Citymeals on Wheels x Chef Marc Forgione book collection** campaign.  
+The purpose is to prototype layouts, UI/UX flows, and Shopify integration before rolling into production.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## React Compiler
+- Built in React and deployed via Railway at:  
+  [sandbox.kitchenartsandletters.com](http://sandbox.kitchenartsandletters.com)  
+- Includes a responsive landing page with:
+  - Hero banner with chef headshot and book covers
+  - Variant cards for **Petite Tasting** and **Grand Tasting** sets
+  - Sticky mobile add-to-cart bar
+  - Tooltips on book cards
+  - FAQ and Citymeals info block
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Development Notes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Repo is connected to GitHub for version control.  
+- Assets (book covers, logos) are stored under `/public/assets`.  
+- Styling: custom `index.css` using **CSS variables** and a lightweight design system (Archivo for body text, Libre Franklin for headings).  
+- No Tailwind, pure CSS system.
+
+---
+
+## Current Tasks
+
+- ✅ Basic mockup of landing page
+- ✅ Mobile sticky add-to-cart bar
+- ✅ Book grid with tooltips
+- ✅ Sandbox routing setup
+
+---
+
+## Known Issues / Dev To-Dos
+
+- [ ] Convert **book cards** into a **side-scrolling carousel** in tablet/mobile view for a smoother browsing experience.
+- [ ] Analyze existing **Shopify theme CSS** to identify opportunities to **reuse baked styling**, ensuring better alignment with the production storefront.
+- [ ] Smooth out FAQ expand/collapse transitions.
+- [ ] Refine sticky bar UI for desktop view (persistent horizontal set selector concept).
+- [ ] Audit inventory/fulfillment integration points before Shopify handoff.
+
+---
+
+## Dev Issues
+
+### Frontend
+- [ ] Refactor **book card grid** into a **horizontal carousel** for tablet/mobile.
+- [ ] Implement **lazy loading** for book images to improve performance.
+- [ ] Add **hover state animations** for buttons and tooltips.
+- [ ] Create unified **color tokens** consistent with Shopify theme palette.
+
+### Integration
+- [ ] Evaluate **Shopify theme CSS** for reusable styles and typography.
+- [ ] Connect **Add to Cart** actions to Shopify API endpoints (demo currently uses `console.log`).
+- [ ] Implement **Shopify buy-button** integration for live product variants.
+
+### UX Enhancements
+- [ ] Improve **FAQ animation** timing (smooth close transition).
+- [ ] Add **sticky bar** variant for desktop view (persistent horizontal selector).
+- [ ] Implement **scroll spy** for mobile sticky bar to highlight the active set.
+
+### General
+- [ ] Audit for accessibility compliance (contrast, focus states, alt text).
+- [ ] Add GitHub Actions for automated **linting and build checks**.
+- [ ] Prepare **README visuals** (screenshots of mobile/desktop layouts).
+---
+
+## Local Development
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/your-org/your-repo.git
+   cd your-repo
+
+	2.	Install dependencies:
+
+npm install
+
+
+	3.	Run locally:
+
+npm start
+
+or, depending on setup:
+
+npm run dev
+
+⸻
+
+Deployment
+	•	Deployed via Railway to sandbox subdomain:
+sandbox.kitchenartsandletters.com
+	•	Protected with basic auth (see internal docs for credentials).
+
+⸻
+
+Next Steps
+	•	Add Shopify buy-button integration.
+	•	Test fulfillment logic end-to-end.
+	•	Prepare for production rollout after content/design approvals.

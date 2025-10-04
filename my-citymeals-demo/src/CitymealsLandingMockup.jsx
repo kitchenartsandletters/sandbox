@@ -1,8 +1,8 @@
 import { useState, useMemo } from "react";
+import BookCarousel from "./BookCarousel";
 
 export default function CitymealsLandingMockup() {
   const [selectedSet, setSelectedSet] = useState("petite");
-  const [tooltip, setTooltip] = useState({ visible: false, x: 0, y: 0, text: "" });
   const donationBySet = { petite: "$25 from your purchase supports Citymeals", grand: "$50 from your purchase supports Citymeals" };
 
   const booksBySet = useMemo(
@@ -83,24 +83,8 @@ export default function CitymealsLandingMockup() {
     console.log(`Add to cart: ${set}`);
   }
 
-  function handleMouseMove(e, text) {
-    setTooltip({ visible: true, x: e.clientX, y: e.clientY, text });
-  }
-
-  function handleMouseLeave() {
-    setTooltip({ ...tooltip, visible: false });
-  }
-
   return (
     <div className="container">
-      {/* Header */}
-      <header>
-        <div className="container">
-          <div>
-            <div />
-          </div>
-        </div>
-      </header>
 
       {/* Hero */}
       <section>
@@ -169,27 +153,17 @@ export default function CitymealsLandingMockup() {
                 <h4>$94.95</h4>
               </div>
             </header>
-            <div className="book-grid three-books">
-              {booksBySet.petite.map((b, idx) => (
-                <div key={idx} className="card book-card" onMouseMove={(e) => handleMouseMove(e, b.blurb)} onMouseLeave={handleMouseLeave}>
-                  {b.title === "What’s Good" ? (
-                    <img src="/assets/whatsGood.jpg" alt={b.title} />
-                  ) : b.title === "Cooking with Dad, the Chef" ? (
-                    <img src="/assets/CookingWithMyDad.jpeg" alt={b.title} />
-                  ) : b.title === "Preserving Wild Foods" ? (
-                    <img src="/assets/preservingWildFoods.webp" alt={b.title} />
-                  ) : (
-                    <div className="placeholder">Cover Placeholder</div>
-                  )}
-                  <div>
-                    <h4 className="book-title">
-                      {b.title}
-                    </h4>
-                    <div>{b.subtitle}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <BookCarousel
+              books={booksBySet.petite.map(b => ({
+                image:
+                  b.title === "What’s Good" ? "whatsGood.jpg" :
+                  b.title === "Cooking with Dad, the Chef" ? "CookingWithMyDad.jpeg" :
+                  b.title === "Preserving Wild Foods" ? "preservingWildFoods.webp" : "",
+                title: b.title,
+                subtitle: b.subtitle,
+                blurb: b.blurb,
+              }))}
+            />
             <ul className="variant-card-list">
               <li>Signed letter from Marc Forgione, sharing why he chose these titles</li>
               <li>Access to an exclusive online book discussion, moderated by Andrew Friedman, author, host/producer of the Andrew Talks to Chefs podcast, veteran cookbook collaborator, and Citymeals board member </li>
@@ -212,26 +186,22 @@ export default function CitymealsLandingMockup() {
               <div>
                 <h4>$209.95</h4>
               </div>
-              <div className="book-grid two-books">
-                <div className="card book-card" onMouseMove={(e) => handleMouseMove(e, booksBySet.grand[3].blurb)} onMouseLeave={handleMouseLeave}>
-                  <img src="/assets/relaeCover.jpg" alt="Relae: A Book of Ideas" />
-                  <div>
-                    <h4 className="book-title">
-                      Relae: A Book of Ideas
-                    </h4>
-                    <div>by Christian Puglisi</div>
-                  </div>
-                </div>
-                <div className="card book-card" onMouseMove={(e) => handleMouseMove(e, booksBySet.grand[4].blurb)} onMouseLeave={handleMouseLeave}>
-                  <img src="/assets/cookingByHand.jpg" alt="Cooking by Hand" />
-                  <div>
-                    <h4 className="book-title">
-                      Cooking by Hand
-                    </h4>
-                    <div>by Paul Bertolli</div>
-                  </div>
-                </div>
-              </div>
+              <BookCarousel
+                books={[
+                  {
+                    image: "relaeCover.jpg",
+                    title: "Relae: A Book of Ideas",
+                    subtitle: "by Christian Puglisi",
+                    blurb: booksBySet.grand[3].blurb,
+                  },
+                  {
+                    image: "cookingByHand.jpg",
+                    title: "Cooking by Hand",
+                    subtitle: "by Paul Bertolli",
+                    blurb: booksBySet.grand[4].blurb,
+                  },
+                ]}
+              />
             </header>
             <ul className="variant-card-list">
               <li>
@@ -326,14 +296,6 @@ export default function CitymealsLandingMockup() {
         </div>
       </div>
       
-      {tooltip.visible && (
-        <div
-          className="book-tooltip dynamic"
-          style={{ top: tooltip.y + 15, left: tooltip.x + 15 }}
-        >
-          {tooltip.text}
-        </div>
-      )}
     </div>
   );
 }
