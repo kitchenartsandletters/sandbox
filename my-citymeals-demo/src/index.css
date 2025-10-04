@@ -523,10 +523,22 @@ a:focus {
 .set-buttons {
   width: 100%;
   display: flex;
-  margin: auto;
-  gap: 0.75rem; /* space between the two secondary buttons */
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: stretch;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.set-buttons .btn-secondary {
+  flex: 1 1 0;
+  min-width: 0;
+  text-align: center;
+}
+
+@media (max-width: 340px) {
+  .set-buttons {
+    flex-wrap: wrap;
+  }
 }
 
 .sticky-donation-row {
