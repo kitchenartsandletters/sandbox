@@ -1,0 +1,260 @@
+/* Container: responsive grid */
+.events-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 400px));
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  /* Base card styling */
+  .event-card {
+    background: var(--bg, #fff);
+    color: var(--fg, #000);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform .2s ease, box-shadow .2s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 0; /* remove grid padding */
+    position: relative;
+  }
+  
+  /* Hover effect */
+  .event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+  
+  /* Image: maintain aspect ratio */
+  .event-image {
+    width: 100%;
+    margin: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Header and content spacing */
+  .event-header {
+    padding: 0.75rem 1rem 0.5rem;
+  }
+  
+  .event-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+  
+  .event-header time {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.25rem;
+  }
+  
+  .event-card p {
+    flex-grow: 1;
+    padding: 0 1rem 1rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  /* Button styling */
+  .event-btn {
+    margin: 0 1rem 1rem;
+    padding: 0.5rem 1rem;
+    background: #007acc;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background .2s ease;
+  }
+  
+  .event-btn:hover {
+    background: #005fa3;
+  }
+  
+  /* Example venue overrides */
+  .venue-kitchen-arts-&-letters { --bg: #fdf6f0; --fg: #332210; }
+  
+  @media (max-width: 600px) {
+    .events-wrapper {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+
+  /* Date block in top-left */
+  .event-date-block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    aspect-ratio: 1;
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+    line-height: 1;
+  }
+  .event-date-month {
+    margin: 0;
+    line-height: 1;
+    margin-bottom: 0.1em;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+  .event-date-day {
+    margin: 0;
+    line-height: 1;
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  /* Time block styling */
+  .event-time {
+    background: var(--pill-bg);
+    filter: saturate(150%);
+    /* background: #f0f0f0; */
+    padding: 4px 12px;
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    border-radius: 9999px; /* pill shape */
+    align-self: flex-start;
+  }
+
+  /* Content area next to date block */
+  .event-content {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .event-type {
+    filter: saturate(150%);
+    color: #555;
+    line-height: 0.5;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  .event-venue {
+    background: var(--pill-bg);
+    filter: saturate(150%);
+    /* background: #f0f0f0; */
+    padding: 4px 12px;
+    margin-top: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    /*color: #555;*/
+    border-radius: 9999px; /* pill shape */
+    align-self: flex-start;
+  }
+  h3.event-name {
+    margin: 0.3em 0;
+    line-height: 1;
+    font-size: 32px;
+  }
+
+  /* Button styling override */
+  .event-btn {
+    background: #fff;
+    color: #000000 !important;
+    margin-top: 20px;
+    /* Inner top-left shadow */
+    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+/* ===== Event Modal Styles ===== */
+#event-modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;              /* always present */
+  opacity: 0;                 /* hidden by default */
+  visibility: hidden;         /* remove from assistive tools */
+  pointer-events: none;       /* disable interactions */
+  transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#event-modal-overlay.active {
+  opacity: 1;                 /* fade in */
+  visibility: visible;        /* make visible immediately */
+  pointer-events: auto;       /* re-enable interactions */
+  transition-delay: 0s;       /* show without delay */
+}
+
+#event-modal {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+#event-modal-overlay.active #event-modal {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.modal-meta {
+  color: #555;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-actions .event-btn {
+  margin: 0;
+  display: inline-block;
+}
