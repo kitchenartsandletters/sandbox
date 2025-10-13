@@ -1,0 +1,291 @@
+<link rel="stylesheet" href="{{ 'citymeals-kal.css' | asset_url }}">
+<script src="{{ 'citymeals-kal.js' | asset_url }}" type="module"></script>
+
+<!-- Citymeals x KAL — Phase 1 static translation from React mockup -->
+
+<!-- Hero -->
+<section id="hero" class="citymeals-hero container">
+  <picture>
+    <source srcset="https://cdn.shopify.com/s/files/1/0297/5046/0549/files/heroBanner-mobile.png?v=1759623659" media="(max-width: 767px)">
+    <source srcset="https://cdn.shopify.com/s/files/1/0297/5046/0549/files/heroBanner-desktop.png?v=1759623661" media="(min-width: 768px)">
+    <img src="https://cdn.shopify.com/s/files/1/0297/5046/0549/files/heroBanner-desktop.png?v=1759623661" alt="Chef Marc Forgione – Citymeals on Wheels Collection hero banner">
+  </picture>
+</section>
+
+<!-- About -->
+<section id="about" class="citymeals-about container">
+  <div class="about-grid">
+    <div class="about-copy">
+      <h2>A Chef's Library with a Purpose</h2>
+      <p>
+        In partnership with Citymeals on Wheels, acclaimed chef Marc Forgione (chef-owner of Restaurant Marc Forgione,
+        Peasant, and others, and a Food Network Iron Chef) has selected a set of chef- and restaurant-focused books and
+        cookbooks integral to his perspective as a chef, storyteller, and food lover.
+      </p>
+      <p>
+        For a limited time, these books are available in exclusive sets—offered with special keepsakes and a portion of
+        proceeds supporting Citymeals’ mission to nourish homebound elderly New Yorkers with meal deliveries and companionship.
+      </p>
+      <p>
+        Whether you’re adding to your own cookbook library or looking for a meaningful gift, this is a unique opportunity to own
+        books personally selected by one of New York’s most respected chefs—while making a real difference in the lives of others.
+      </p>
+    </div>
+    <div class="about-headshot full-bleed">
+      <img src="https://cdn.shopify.com/s/files/1/0297/5046/0549/files/forgioneHeadshot.jpg?v=1759623664" alt="Chef Marc Forgione headshot">
+    </div>
+  </div>
+</section>
+
+<!-- Books teaser -->
+<section id="books" class="container section-header">
+  <h2>Marc’s "Culinary Storytelling" Collection</h2>
+  <p><strong>“I love hearing about people’s journeys through food,” says Marc Forgione.</strong></p>
+  <p>
+    That sentiment flows through his book selection. From Peter Hoffman’s ingredient-inspired reminiscences to Paul Bertolli’s culinary evolution to the daughter-father dynamic shared by Verveine Origner and Ken Oringer to the “idea essays” of Christian Puglisi to Matthew Weingarten and Raquel Pelzel’s paean to foraging and the ancient craft of preserving … all of Forgione’s selections will be as at home in an armchair as they are in the kitchen.
+  </p>
+  <p><strong>“These aren’t just cookbooks,” says Marc. “They’re storybooks as well.”</strong></p>
+</section>
+
+<!-- Variant Cards -->
+<section id="select" class="container">
+  <div class="section-header">
+    <h2>Choose Your Set</h2>
+  </div>
+
+  <div id="sets" class="variant-grid">
+    <!-- Petite -->
+    <article class="card variant-card">
+      <header class="variant-card__header">
+        <div>
+          <h3>Petite Tasting Set</h3>
+          <p>3 chef-selected books</p>
+        </div>
+        <div>
+          <h4>$94.95</h4>
+        </div>
+      </header>
+
+      <!-- Native theme slider -->
+      <div class="product-carousel js-slider">
+        <div class="product-card">
+          <img src="https://cdn.shopify.com/s/files/1/0297/5046/0549/files/whatsGood.jpg?v=1759623658" alt="What’s Good by Peter Hoffman">
+          <h4 class="book-title">What’s Good</h4>
+          <p class="book-subtitle">by Peter Hoffman</p>
+        </div>
+        <div class="product-card">
+          <img src="https://cdn.shopify.com/s/files/1/0297/5046/0549/files/CookingWithMyDad.jpg?v=1759623657" alt="Cooking with Dad, the Chef by Verveine Oringer &amp; Ken Oringer">
+          <h4 class="book-title">Cooking with Dad, the Chef</h4>
+          <p class="book-subtitle">by Verveine Oringer &amp; Ken Oringer</p>
+        </div>
+        <div class="product-card">
+          <img src="https://cdn.shopify.com/s/files/1/0297/5046/0549/files/preservingWildFoods.webp?v=1759623657" alt="Preserving Wild Foods by Matthew Weingarten &amp; Raquel Pelzel">
+          <h4 class="book-title">Preserving Wild Foods</h4>
+          <p class="book-subtitle">by Matthew Weingarten &amp; Raquel Pelzel</p>
+        </div>
+      </div>
+
+      <ul class="variant-card-list">
+        <li>Signed letter from Marc Forgione, sharing why he chose these titles</li>
+        <li>Access to an exclusive online book discussion, moderated by Andrew Friedman, author, host/producer of the Andrew Talks to Chefs podcast, veteran cookbook collaborator, and Citymeals board member</li>
+        <li>$25 from your purchase supports Citymeals</li>
+        <li>Ships in standard packaging</li>
+      </ul>
+      <div class="foot-message">Ideal for cookbook lovers, passionate home cooks, and anyone who believes in the power of good food to connect and nourish.</div>
+      <div>
+        <button class="button btn-primary js-add-to-cart" data-set="petite">Buy Petite Tasting Set</button>
+      </div>
+    </article>
+
+    <!-- Grand -->
+    <article class="card variant-card">
+      <header class="variant-card__header">
+        <div>
+          <h3>Grand Tasting Set</h3>
+          <p>5 chef-selected books</p>
+        </div>
+        <div>
+          <h4>$209.95</h4>
+        </div>
+      </header>
+
+      <!-- Native theme slider -->
+      <div class="product-carousel js-slider">
+        <div class="product-card">
+          <img src="https://cdn.shopify.com/s/files/1/0297/5046/0549/files/relaeCover.jpg?v=1759623657" alt="Relae: A Book of Ideas by Christian Puglisi">
+          <h4 class="book-title">Relae: A Book of Ideas</h4>
+          <p class="book-subtitle">by Christian Puglisi</p>
+        </div>
+        <div class="product-card">
+          <img src="https://cdn.shopify.com/s/files/1/0297/5046/0549/files/cookingByHand.jpg?v=1759623658" alt="Cooking by Hand by Paul Bertolli">
+          <h4 class="book-title">Cooking by Hand</h4>
+          <p class="book-subtitle">by Paul Bertolli</p>
+        </div>
+      </div>
+
+      <ul class="variant-card-list">
+        <li>
+          5 chef-selected books: the three books included in the Petite Tasting set as well as:
+          <ul>
+            <li>Relae: A Book of Ideas by Christian Puglisi</li>
+            <li>Cooking by Hand by Paul Bertolli</li>
+          </ul>
+        </li>
+        <li>Signed letter from Marc Forgione</li>
+        <li>Access to the online book discussion</li>
+        <li>Citymeals-branded tote bag</li>
+        <li>Gift-quality packaging</li>
+        <li>$50 from your purchase supports Citymeals</li>
+      </ul>
+      <div class="foot-message">An exceptional gift—generous in its contents, presentation, and impact.</div>
+      <div>
+        <button class="button btn-primary js-add-to-cart" data-set="grand">Buy Grand Tasting Set</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- Citymeals Block -->
+<section class="citymeals-info container">
+  <div class="card variant-grid citymeals-card">
+    <div class="citymealsLogo">
+      <!-- If you have a CDN logo, swap it here -->
+      <img src="/assets/citymealsLogo.png" alt="Citymeals on Wheels Logo">
+    </div>
+    <div>
+      <h3>About Citymeals</h3>
+      <p class="citymeals-blurb">
+        Citymeals provides nourishing meals and vital companionship to older New Yorkers in need. Each year, they deliver more than two
+        million meals to the city’s most vulnerable residents—right to their doors. Your purchase directly supports this work.
+      </p>
+      <div>
+        <a href="https://www.citymeals.org/">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="container">
+  <div class="section-header">
+    <h2>Frequently Asked Questions</h2>
+  </div>
+  <div class="faq card">
+    <details>
+      <summary>Can I choose which books are included?</summary>
+      <p>No—these titles are personally selected by Chef Marc Forgione. The curation is part of the experience.</p>
+    </details>
+    <details>
+      <summary>Is the donation portion tax-deductible?</summary>
+      <p>Unfortunately, tax law does not allow this. If you would like to support Citymeals’ work directly, you can make a donation using the link on this page.</p>
+    </details>
+    <details>
+      <summary>When will I receive my order?</summary>
+      <p>Orders will ship in early November. You’ll receive an invitation to the online discussion at that time.</p>
+    </details>
+  </div>
+
+  <div class="final-note">
+    <h2>Final Note</h2>
+  </div>
+  <div class="foot-message">
+    <p>This is more than a collection of cookbooks. It’s a personal glimpse into the culinary inspirations of a celebrated chef—and an opportunity to support an organization doing vital work in New York City.</p>
+    <p>Quantities are limited. Reserve your set while they’re available.</p>
+  </div>
+</section>
+
+<!-- Sticky mobile bar -->
+<div class="sticky-mobile-bar">
+  <div class="container">
+    <div class="sticky-bar-controls">
+      <div class="set-buttons">
+        <button class="button btn-secondary set-button" data-set="petite">Petite Tasting</button>
+        <button class="button btn-secondary set-button" data-set="grand">Grand Tasting</button>
+      </div>
+    </div>
+    <div class="sticky-cart-row">
+      <div class="cart-button">
+        <button class="button btn-primary js-add-to-cart" data-set="petite">Add to Cart</button>
+      </div>
+    </div>
+    <div class="sticky-donation-row">
+      <div class="donation-message">
+        <p><span>$25 from your purchase supports Citymeals</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Citymeals KAL Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "text",
+      "id": "hero_headline",
+      "label": "Hero Headline"
+    },
+    {
+      "type": "text",
+      "id": "hero_kicker",
+      "label": "Hero Kicker"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body Text"
+    },
+    {
+      "type": "text",
+      "id": "variant_heading",
+      "label": "Variant Section Heading",
+      "default": "Choose Your Set"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hero",
+      "name": "Hero",
+      "settings": []
+    },
+    {
+      "type": "about",
+      "name": "About",
+      "settings": []
+    },
+    {
+      "type": "book_carousel",
+      "name": "Book Carousel",
+      "settings": []
+    },
+    {
+      "type": "variant_cards",
+      "name": "Variant Cards",
+      "settings": []
+    },
+    {
+      "type": "citymeals_info",
+      "name": "Citymeals Info",
+      "settings": []
+    },
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": []
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Citymeals KAL Section",
+      "category": "Custom"
+    }
+  ]
+}
+/* Note: The handle 'chef-marc-forgione-collection' assigned to 'citymeals_product' must match the live Shopify product “Chef Marc Forgione – Culinary Storytelling Collection”. */
+{% endschema %}

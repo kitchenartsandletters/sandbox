@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import BookCarousel from "./BookCarousel";
+import "./index.css";
 
 export default function CitymealsLandingMockup() {
   const [selectedSet, setSelectedSet] = useState("petite");

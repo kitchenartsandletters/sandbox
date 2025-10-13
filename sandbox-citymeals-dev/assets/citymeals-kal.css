@@ -1,0 +1,32 @@
+
+
+/* ==========================================================================
+   Citymeals KAL Section Stylesheet
+   This stylesheet contains styles for the Citymeals KAL section.
+   ========================================================================== */
+
+.citymeals-hero {
+  /* Hero section styles here */
+}
+
+.citymeals-about {
+  /* About section styles here */
+}
+
+.citymeals-carousel {
+  /* Carousel section styles here */
+}
+
+.citymeals-variants {
+  /* Variants/options section styles here */
+}
+
+.citymeals-faq {
+  /* FAQ section styles here */
+}
+
+.citymeals-sticky-cart {
+  /* Sticky cart styles here */
+}
+
+/* This file is linked in /sections/citymeals-kal.liquid */
